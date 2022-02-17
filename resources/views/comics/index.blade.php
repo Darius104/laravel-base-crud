@@ -1,7 +1,17 @@
 @extends('layouts.app')
 
 @section('main_content')
-    <h1>Lista di fumetti</h1>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navnarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" href="{{ route('comics.create') }}"> + New Comic</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
     <br>
     <br>
     @foreach ($comics as $element)

@@ -1,6 +1,15 @@
 @extends('layouts.app')
 
 @section('main_content')
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navnarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="{{ route('comics.index') }}"> <- Back</a>
+                </div>
+            </div>
+        </div>
+    </nav>
     <div class="container d-flex justify-content-center">
         <div class="card" style="width: 18rem;">
             <img src="{{ $comic->thumb }}" alt="">

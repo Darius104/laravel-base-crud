@@ -2,8 +2,18 @@
 
 @section('main_content')
     <section>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navnarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" href="{{ route('comics.index') }}"> <- Back</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
         <div class="container">
             <h2>crea nuova riga di comic</h2>
+            
 
             <form action="{{ route('comics.store') }}" method="post">
                 @csrf

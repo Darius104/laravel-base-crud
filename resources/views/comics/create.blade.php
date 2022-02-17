@@ -14,6 +14,15 @@
         <div class="container">
             <h2>crea nuova riga di comic</h2>
             
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
             <form action="{{ route('comics.store') }}" method="post">
                 @csrf
@@ -21,37 +30,37 @@
 
                 <div class="form-group">
                     <label for="title" class="form-label">Title</label>
-                    <input type="text" class="form-control" id="titile" name="title">
+                    <input type="text" class="form-control" id="titile" name="title" value="{{ old('title') }}">
                 </div>
                 <br>
 
                 <div class="form-group">
                     <label for="thumb" class="form-label">Url immagine</label>
-                    <input type="text" class="form-control" id="thumb" name="thumb">
+                    <input type="text" class="form-control" id="thumb" name="thumb" value="{{ old('thumb') }}">
                 </div>
                 <br>
 
                 <div class="form-group">
                     <label for="price" class="form-label">Prezzo</label>
-                    <input type="text" class="form-control" id="price" name="price">
+                    <input type="text" class="form-control" id="price" name="price" value="{{ old('price') }}">
                 </div>
                 <br>
 
                 <div class="form-group">
                     <label for="series" class="form-label">Serie</label>
-                    <input type="text" class="form-control" id="series" name="series">
+                    <input type="text" class="form-control" id="series" name="series" value="{{ old('series') }}">
                 </div>
                 <br>
 
                 <div class="form-group">
                     <label for="sale_date" class="form-label">Data</label>
-                    <input type="text" class="form-control" id="sale_date" name="sale_date">
+                    <input type="text" class="form-control" id="sale_date" name="sale_date" value="{{ old('sale_date') }}">
                 </div>
                 <br>
 
                 <div class="form-group">
                     <label for="type" class="form-label">Tipo</label>
-                    <input type="text" class="form-control" id="type" name="type">
+                    <input type="text" class="form-control" id="type" name="type" value="{{ old('type') }}">
                 </div>
                 <br>
 

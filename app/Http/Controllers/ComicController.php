@@ -43,6 +43,17 @@ class ComicController extends Controller
     {
         $form_data = $request->all();
 
+        //controllare se i dati inseriti dall'utente siano validi o meno
+        $request->validate([
+            'title' => 'required|max:100',
+            'description' => 'required',
+            'thumb' => 'required',
+            'price' => 'required',
+            'series' => 'required',
+            'sale_date' => 'required',
+            'type' => 'required'
+        ]);
+
         $new_comic = new Comic();
         $new_comic->title = $form_data['title'];
         $new_comic->thumb = $form_data['thumb'];
@@ -81,7 +92,11 @@ class ComicController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comic = Comic::findOrFail($id);
+        $data = [
+            'comic' => $comic
+        ];
+        return view('comics.edit', $data);
     }
 
     /**
@@ -93,7 +108,11 @@ class ComicController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $form_data = $request->all();
+        $comic_to_update = Comic::findOrFail($id);
+        $comic_to_update->update($form_data);
+
+        return redirect()->route('comics.show', ['comic' => $comic_to_update->id]);
     }
 
     /**
